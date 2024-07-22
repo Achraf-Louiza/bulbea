@@ -28,7 +28,7 @@ class RNN(ANN):
         ))
 
         for i in range(2, len(sizes) - 1):
-            self.model.add(cell(units=sizes[i], return_sequences=True))
+            self.model.add(cell(units=sizes[i], return_sequences=False))
             self.model.add(Dropout(dropout))
 
         self.model.add(Dense(units=sizes[-1]))  # 'units' instead of 'output_dim'
