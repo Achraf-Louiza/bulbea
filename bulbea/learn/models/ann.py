@@ -2,9 +2,7 @@ from __future__ import absolute_import
 from six import with_metaclass
 
 from keras.models import Sequential
-from keras.layers import recurrent
-from keras.layers import core
-
+from keras.layers import LSTM, GRU, core
 from bulbea.learn.models import Supervised
 
 class ANN(Supervised):
