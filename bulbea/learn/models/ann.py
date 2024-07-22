@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from six import with_metaclass
 
 from keras.models import Sequential
-from keras.layers import LSTM, GRU, core
+from keras.layers import LSTM, GRU, Dense, Activation, Dropout
 from bulbea.learn.models import Supervised
 
 class ANN(Supervised):
@@ -29,10 +29,10 @@ class RNN(ANN):
 
         for i in range(2, len(sizes) - 1):
             self.model.add(cell(sizes[i], return_sequences = False))
-            self.model.add(core.Dropout(dropout))
+            self.model.add(Dropout(dropout))
 
-        self.model.add(core.Dense(output_dim = sizes[-1]))
-        self.model.add(core.Activation(activation))
+        self.model.add(Dense(output_dim = sizes[-1]))
+        self.model.add(Activation(activation))
 
         self.model.compile(loss = loss, optimizer = optimizer)
 
