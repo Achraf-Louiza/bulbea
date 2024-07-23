@@ -40,7 +40,7 @@ import bulbea as bb
 pplt.style.use(AppConfig.PLOT_STYLE)
 
 def _get_cummulative_return(data):
-    cumret  = (data / data[-2]) - 1
+    cumret  = (data / data[0]) - 1
 
     return cumret
 
