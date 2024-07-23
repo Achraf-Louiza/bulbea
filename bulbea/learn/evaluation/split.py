@@ -30,10 +30,7 @@ def split(share,
     _check_type(share, type_ = bb.Share, raise_err = True, expected_type_name = 'bulbea.Share')
     _check_iterable(attrs, raise_err = True)
     _check_int(shift, raise_err = True)
-    _check_real(window, raise_err = True)
     _check_real(train, raise_err = True)
-
-    _validate_in_range(window, 0, 1, raise_err = True)
     _validate_in_range(train, 0, 1, raise_err = True)
 
     data   = share.data[attrs]
