@@ -29,7 +29,7 @@ class RNN(ANN):
         rseq = True
         for i in range(2, len(sizes) - 1):
             if i==(len(sizes)-2):
-            rseq = False
+                rseq = False
             self.model.add(cell(units=sizes[i], return_sequences=rseq))
             self.model.add(Dropout(dropout))
             
