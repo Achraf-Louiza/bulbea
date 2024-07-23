@@ -26,10 +26,13 @@ class RNN(ANN):
             input_shape     = (None, sizes[0]),  # input_shape should be (timesteps, features)
             return_sequences = True
         ))
-
+        rseq = True
         for i in range(2, len(sizes) - 1):
-            self.model.add(cell(units=sizes[i], return_sequences=False))
+            if i==(len(sizes)-2):
+            rseq = False
+            self.model.add(cell(units=sizes[i], return_sequences=rseq))
             self.model.add(Dropout(dropout))
+            
 
         self.model.add(Dense(units=sizes[-1]))  # 'units' instead of 'output_dim'
         self.model.add(Activation(activation))
