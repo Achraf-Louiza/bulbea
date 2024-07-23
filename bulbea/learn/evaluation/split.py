@@ -19,7 +19,7 @@ import bulbea as bb
 
 def split(share,
           attrs     = 'Close',
-          window    = 0.01,
+          window    = 7,
           train     = 0.60,
           shift     = 1,
           normalize = False):
@@ -39,8 +39,6 @@ def split(share,
     data   = share.data[attrs]
 
     length = len(share)
-
-    window = int(np.rint(length * window))
     offset = shift - 1
 
     splits = np.array([data[i if i is 0 else i + offset: i + window] for i in range(length - window)])
